@@ -50,7 +50,7 @@ namespace ABTechApp.Controllers
 
             if (!ModelState.IsValid)
             {
-                viewModel.users = _context.Users.ToList();
+                viewModel.Users = _context.Users.ToList();
 
                 return View("New", viewModel);
             }

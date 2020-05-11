@@ -40,7 +40,7 @@
     @*<div class="form-group">
         @Html.LabelFor(o => o.AssignedToWho)
         @Html.DropDownListFor(o => o.AssignedToWho, 
-            new SelectList(Model.users, "Id", "Name"), 
+            new SelectList(Model.Users, "Id", "Name"), 
             "", new { @class = "form-control" })
 
         @Html.ValidationMessageFor(o => o.AssignedToWho)

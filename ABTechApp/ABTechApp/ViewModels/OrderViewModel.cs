@@ -22,6 +22,6 @@ namespace ABTechApp.ViewModels
         [Required]
         public string AssignedToWho { get; set; }
 
-        public IEnumerable<ApplicationUser> users { get; set; }
+        public IEnumerable<ApplicationUser> Users { get; set; }
     }
 }

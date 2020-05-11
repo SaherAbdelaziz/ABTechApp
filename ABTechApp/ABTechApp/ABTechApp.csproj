@@ -190,6 +190,10 @@
     <Compile Include="Migrations\202005112013170_applyAnotation.Designer.cs">
       <DependentUpon>202005112013170_applyAnotation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005112148334_AddNamePropartyToUser.cs" />
+    <Compile Include="Migrations\202005112148334_AddNamePropartyToUser.Designer.cs">
+      <DependentUpon>202005112148334_AddNamePropartyToUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -288,6 +292,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005112013170_applyAnotation.resx">
       <DependentUpon>202005112013170_applyAnotation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005112148334_AddNamePropartyToUser.resx">
+      <DependentUpon>202005112148334_AddNamePropartyToUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
