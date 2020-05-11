@@ -22,3 +22,65 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
+span.field-validation-error {
+    font-weight: bold;
+    color: red;
+}
+
+/* Bootstrap ovrides*/
+
+
+
+.navbar-brand {
+    font-weight: 900;
+}
+
+.navbar-inverse .notifications {
+    position: relative;
+}
+
+.navbar-inverse .notifications .badge{
+    position: absolute;
+    top: 8px;
+    right: -1px;
+    background: #A80A0A;
+}
+
+
+.form-control {
+    font-size: 13px;
+    margin: 9px 12px;
+    -ms-border-radius: 20px;
+    border-radius: 10px;
+}
+
+form-control:focus {
+    border-color: #2196f3;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.btn {
+    font-size: 17px;
+    padding: 7px 20px;
+    border-radius: 20px;
+}
+
+
+
+/*Page level styles*/
+
+/*ul.notifications {
+    list-style: none;
+    padding-left: 0;
+}
+
+ul.notifications > li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;  
+}
+
+ul.notifications > li:last-child {
+    border-bottom: non*/

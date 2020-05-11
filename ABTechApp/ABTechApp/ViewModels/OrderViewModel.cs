@@ -20,6 +20,7 @@ namespace ABTechApp.ViewModels
         public string Location { get; set; }
 
         [Required]
+        [Display(Name = "Who should take this order ?")]
         public string AssignedToWho { get; set; }
 
         public IEnumerable<ApplicationUser> Users { get; set; }
