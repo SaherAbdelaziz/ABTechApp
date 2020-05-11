@@ -37,14 +37,14 @@
         @Html.ValidationMessageFor(o => o.Location)
     </div>
 
-    @*<div class="form-group">
+    <div class="form-group">
         @Html.LabelFor(o => o.AssignedToWho)
         @Html.DropDownListFor(o => o.AssignedToWho, 
             new SelectList(Model.Users, "Id", "Name"), 
             "", new { @class = "form-control" })
 
         @Html.ValidationMessageFor(o => o.AssignedToWho)
-    </div>*@
+    </div>
 
     <button class="btn btn-lg btn-primary" type="submit">Submit</button>
 }

@@ -7,7 +7,6 @@ using System.Web.Mvc;
 using ABTechApp.Models;
 using ABTechApp.ViewModels;
 using Microsoft.AspNet.Identity;
-using System.Data.Entity;
 namespace ABTechApp.Controllers
 {
     public class OrderController : Controller
@@ -26,7 +25,8 @@ namespace ABTechApp.Controllers
         {
             var orders = _context.Orders
                 .Include(o=>o.WhoAssignedThis)
-                .Include(o=>o.AssignedToWho);
+                .Include(o=>o.AssignedToWho)
+                .ToList();
 
             return View(orders);
         }
@@ -36,8 +36,8 @@ namespace ABTechApp.Controllers
         {
             var viewModel = new OrderViewModel
             {
-                //Genres = _context.Genres.ToList(),
-                //Heading = "Add a Gig"
+                Users = _context.Users.ToList(),
+                Heading = "New Order"
             };
             return View(viewModel);
         }
@@ -62,7 +62,7 @@ namespace ABTechApp.Controllers
                 Item = viewModel.Item,
                 Phone = viewModel.Phone,
                 Location = viewModel.Location,
-                //AssignedToWhoId = 
+                AssignedToWhoId = viewModel.AssignedToWho
             };
 
             _context.Orders.Add(order);
@@ -73,7 +73,11 @@ namespace ABTechApp.Controllers
 
         public ActionResult Details(int id)
         {
-            var order = _context.Orders.Where(o => o.Id == id);
+            var order = _context.Orders
+                .Include(o => o.WhoAssignedThis)
+                .Include(o => o.AssignedToWho)
+                .Single(o => o.Id == id);
+                 
 
             return View(order);
         }

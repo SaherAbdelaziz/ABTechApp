@@ -23,5 +23,6 @@ namespace ABTechApp.ViewModels
         public string AssignedToWho { get; set; }
 
         public IEnumerable<ApplicationUser> Users { get; set; }
+        public string Heading { get; set; }
     }
 }
