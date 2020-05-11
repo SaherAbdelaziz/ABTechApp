@@ -20,8 +20,9 @@ namespace ABTechApp.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Order> Orders { get; set; }
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("ABTECH", throwIfV1Schema: false)
         {
         }
 
