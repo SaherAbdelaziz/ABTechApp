@@ -1,0 +1,37 @@
+﻿@model IEnumerable<ABTechApp.Models.Order>
+@{
+    ViewBag.Title = "Orders Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Orders Details</h2>
+
+@if (!Model.Any())
+{
+    <p> We don't have any Orders yet.</p>
+}
+
+else
+{
+
+    <table class="table table-bordered table-hover">
+
+        <thead>
+        <tr>
+            <td>Order</td>
+        </tr>
+        </thead>
+
+        <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@Html.ActionLink(order.Name, "Details" , 
+                        "Order" , new {id = order.Id} , null)</td>
+
+            </tr>
+        }
+        </tbody>
+
+    </table>
+}

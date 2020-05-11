@@ -1,0 +1,56 @@
+@model ABTechApp.ViewModels.OrderViewModel
+
+@{
+    ViewBag.Title = "New Order";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New Order Form</h2>
+
+
+@using (Html.BeginForm("Create", "Order"))
+{
+    <p class="alert alert-info"> All Fields are <strong>Required</strong>. </p>
+
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        @Html.LabelFor(o => o.Name)
+        @Html.TextBoxFor(o => o.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(o => o.Name)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(o => o.Phone)
+        @Html.TextBoxFor(o => o.Phone, new { @class = "form-control" })
+        @Html.ValidationMessageFor(o => o.Phone)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(o => o.Item)
+        @Html.TextBoxFor(o => o.Item, new { @class = "form-control" })
+        @Html.ValidationMessageFor(o => o.Item)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(o => o.Location)
+        @Html.TextBoxFor(o => o.Location, new { @class = "form-control" })
+        @Html.ValidationMessageFor(o => o.Location)
+    </div>
+
+    @*<div class="form-group">
+        @Html.LabelFor(o => o.AssignedToWho)
+        @Html.DropDownListFor(o => o.AssignedToWho, 
+            new SelectList(Model.users, "Id", "Name"), 
+            "", new { @class = "form-control" })
+
+        @Html.ValidationMessageFor(o => o.AssignedToWho)
+    </div>*@
+
+    <button class="btn btn-lg btn-primary" type="submit">Submit</button>
+}
+
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

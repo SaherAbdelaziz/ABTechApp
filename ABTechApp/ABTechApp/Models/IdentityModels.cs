@@ -30,5 +30,14 @@ namespace ABTechApp.Models
         {
             return new ApplicationDbContext();
         }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Order>()
+                .HasRequired(o=>o.WhoAssignedThis)
+                .WithMany()
+                .WillCascadeOnDelete(false);
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

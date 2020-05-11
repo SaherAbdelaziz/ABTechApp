@@ -186,6 +186,10 @@
     <Compile Include="Migrations\202005112001086_init1.Designer.cs">
       <DependentUpon>202005112001086_init1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005112013170_applyAnotation.cs" />
+    <Compile Include="Migrations\202005112013170_applyAnotation.Designer.cs">
+      <DependentUpon>202005112013170_applyAnotation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -193,6 +197,7 @@
     <Compile Include="Models\Order.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\OrderViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -250,10 +255,13 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\Order\Details.cshtml" />
+    <Content Include="Views\Order\Mine.cshtml" />
+    <Content Include="Views\Order\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Order\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -277,6 +285,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005112001086_init1.resx">
       <DependentUpon>202005112001086_init1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005112013170_applyAnotation.resx">
+      <DependentUpon>202005112013170_applyAnotation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

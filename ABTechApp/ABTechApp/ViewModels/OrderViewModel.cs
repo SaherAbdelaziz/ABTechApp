@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using ABTechApp.Models;
 
-namespace ABTechApp.Models
+namespace ABTechApp.ViewModels
 {
-    public class Order
+    public class OrderViewModel
     {
         public int Id { get; set; }
         [Required]
@@ -19,11 +20,8 @@ namespace ABTechApp.Models
         public string Location { get; set; }
 
         [Required]
-        public string WhoAssignedThisId { get; set; }
-        [Required]
-        public string AssignedToWhoId { get; set; }
+        public string AssignedToWho { get; set; }
 
-        public ApplicationUser WhoAssignedThis { get; set; }
-        public ApplicationUser AssignedToWho { get; set; }
+        public IEnumerable<ApplicationUser> users { get; set; }
     }
 }

@@ -1,0 +1,53 @@
+﻿@model ABTechApp.Models.Order
+
+@{
+    ViewBag.Title = "Order Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table table-bordered table-hover">
+
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Phone</td>
+            <td>Order</td>
+            <td>Location</td>
+            <td>Who Assigned This</td>
+            <td>Assigned To Who</td>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        <tr>
+
+            <td>
+                @Model.Name
+            </td>
+
+            <td>
+                @Model.Phone
+            </td>
+
+            <td>
+                @Model.Item
+            </td>
+
+            <td>
+                @Model.Location
+            </td>
+
+            <td>
+                @Model.WhoAssignedThis
+            </td>
+
+            <td>
+                @Model.AssignedToWho
+            </td>
+
+        </tr>
+
+</tbody>
+
+</table>
