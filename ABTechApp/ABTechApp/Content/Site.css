@@ -48,6 +48,10 @@ span.field-validation-error {
     background: #A80A0A;
 }
 
+a.notifications + div.popover {
+    width: 300px;
+    left: -116px;
+}
 
 .form-control {
     font-size: 13px;

@@ -29,6 +29,11 @@ namespace ABTechApp.Models
             // Add custom user claims here
             return userIdentity;
         }
+
+        public void Notify(Notification notification)
+        {
+            UserNotifications.Add(new UserNotification(this, notification));
+        }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

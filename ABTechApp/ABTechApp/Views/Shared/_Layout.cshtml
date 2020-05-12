@@ -39,5 +39,47 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+<script type="text/x-template" id="notifications-template">
+    <ul>
+        <%
+        _.each(notifications, function(notification){
+        %>
+        <li>
+            you has New Order Named <%= notification.order.name %>
+            <%= moment(notification.dateTime).format("D MMM HH:mm") %>.
+        </li>
+
+        <% })%>
+
+    </ul>
+    </script>
+<script>
+    $(document).ready(function () {
+        $.getJSON("/api/notifications", function (notifications) {
+            if (notifications.length == 0)
+                return;
+
+            $(".js-notifications-count")
+                .text(notifications.length)
+                .removeClass("hide")
+                .addClass("animated bounceInDown");
+
+            $(".notifications").popover({
+                html: true,
+                title: "Notifications",
+                content: function () {
+                    var compiled = _.template($("#notifications-template").html());
+                    return compiled({ notifications: notifications });
+                },
+                placement: "bottom",
+                trigger: 'focus'
+            });
+
+        });
+    });
+</script>
+
+
 </body>
 </html>

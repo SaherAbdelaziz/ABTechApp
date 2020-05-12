@@ -65,6 +65,8 @@ namespace ABTechApp.Controllers
                 AssignedToWhoId = viewModel.AssignedToWho
             };
 
+            var user = _context.Users.Single(u => u.Id == viewModel.AssignedToWho);
+            user.Notify(new Notification(order));
             _context.Orders.Add(order);
             _context.SaveChanges();
 
