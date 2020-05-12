@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -13,6 +15,12 @@ namespace ABTechApp.Models
         [Required]
         [StringLength(100)]
         public string Name { get; set; }
+        public ICollection<UserNotification> UserNotifications { get; set; }
+
+        public ApplicationUser()
+        {
+            UserNotifications = new Collection<UserNotification>();
+        }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -26,6 +34,9 @@ namespace ABTechApp.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Order> Orders { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
+        public DbSet<UserNotification> UserNotifications { get; set; }
+
         public ApplicationDbContext()
             : base("ABTECH", throwIfV1Schema: false)
         {
@@ -41,6 +52,11 @@ namespace ABTechApp.Models
             modelBuilder.Entity<Order>()
                 .HasRequired(o=>o.WhoAssignedThis)
                 .WithMany()
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<UserNotification>()
+                .HasRequired(n => n.User)
+                .WithMany(u => u.UserNotifications)
                 .WillCascadeOnDelete(false);
             base.OnModelCreating(modelBuilder);
         }
