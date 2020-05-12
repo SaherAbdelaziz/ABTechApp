@@ -31,7 +31,7 @@ namespace ABTechApp.Controllers
             return View(orders);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Manger")]
         public ActionResult New()
         {
             var viewModel = new OrderViewModel
@@ -42,7 +42,7 @@ namespace ABTechApp.Controllers
             return View(viewModel);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Manger")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(OrderViewModel viewModel)

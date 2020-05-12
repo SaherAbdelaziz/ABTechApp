@@ -43,7 +43,7 @@ namespace ABTechApp.Models
         public DbSet<UserNotification> UserNotifications { get; set; }
 
         public ApplicationDbContext()
-            : base("ABTECH", throwIfV1Schema: false)
+            : base("ABTechAppTest", throwIfV1Schema: false)
         {
         }
 

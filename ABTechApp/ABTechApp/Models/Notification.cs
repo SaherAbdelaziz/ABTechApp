@@ -24,7 +24,7 @@ namespace ABTechApp.Models
             if (order == null)
                 throw new ArgumentNullException(nameof(order));
 
-            DateTime = DateTime.Now;
+            DateTime = DateTime.Now.ToLocalTime();
             Order = order;
         }
         

@@ -21,8 +21,12 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("New Order", "New", "Order")</li>
-                    <li>@Html.ActionLink("Orders", "Index", "Order")</li>
+                    @if (User.IsInRole("Manger"))
+                    {
+                        <li>@Html.ActionLink("New Order", "New", "Order")</li>
+                        <li>@Html.ActionLink("Orders", "Index", "Order")</li>
+                    }
+                    
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -43,11 +47,17 @@
 <script type="text/x-template" id="notifications-template">
     <ul>
         <%
+
         _.each(notifications, function(notification){
+        var Name =  notification.order.name ;
+        var date = notification.dateTime
+        var dateMoment = moment(date).format('MMMM Do YYYY, h:mm:ss a');
+
         %>
         <li>
-            you has New Order Named <%= notification.order.name %>
-            <%= moment(notification.dateTime).format("D MMM HH:mm") %>.
+            you has New Order Named <%= Name %>
+            @*at <%= dateMoment %>*@
+
         </li>
 
         <% })%>

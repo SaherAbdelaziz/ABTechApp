@@ -209,6 +209,10 @@
     <Compile Include="Migrations\202005120219534_AddNotifications.Designer.cs">
       <DependentUpon>202005120219534_AddNotifications.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005120750188_SeedAdmin.cs" />
+    <Compile Include="Migrations\202005120750188_SeedAdmin.Designer.cs">
+      <DependentUpon>202005120750188_SeedAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -322,6 +326,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005120219534_AddNotifications.resx">
       <DependentUpon>202005120219534_AddNotifications.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005120750188_SeedAdmin.resx">
+      <DependentUpon>202005120750188_SeedAdmin.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
